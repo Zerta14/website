@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exemple de proxy avec CORS Anywhere</title>
+</head>
+<body>
+  <iframe id="proxy" style="width:100%; height:600px;"></iframe>
+
+  <script>
+    function loadPage() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const url = urlParams.get('url');
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://cors-anywhere.herokuapp.com/' + url, true);
+      xhr.setRequestHeader('origin', 'https://www.example.com'); // Remplacez www.example.com par votre nom de domaine
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          document.getElementById('proxy').srcdoc = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
+    loadPage();
+  </script>
+</body>
+</html>
