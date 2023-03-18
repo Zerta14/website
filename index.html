@@ -20,7 +20,7 @@
       const url = urlParams.get('url');
       const xhr = new XMLHttpRequest();
       xhr.open('GET', 'https://cors-anywhere.herokuapp.com/' + url, true);
-      xhr.setRequestHeader('origin', 'https://www.example.com'); // Remplacez www.example.com par votre nom de domaine
+      xhr.setRequestHeader('origin', 'https://zerta14.github.io/website/'); // Remplacez www.example.com par votre nom de domaine
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           document.getElementById('proxy').srcdoc = xhr.responseText;
